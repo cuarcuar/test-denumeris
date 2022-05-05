@@ -68,7 +68,7 @@
                 <div class="sidebar-content">
                     <ul class="nav nav-primary">
                         <li class="nav-item">
-                            <a href="#apiresources">
+                            <a href="{{ route('direccion.index') }}">
                                 <i class="fas fa-table"></i>
                                 <p>Recursos para API</p>
                             </a>
@@ -88,7 +88,29 @@
         <div class="main-panel">
             @yield('content')
         </div>
+
     </div>
+
+    <!--   Core JS Files   -->
+    <script src="{{ asset('assets/js/core/jquery.3.2.1.min.js') }}"></script>
+    <script src="{{ asset('assets/js/core/popper.min.js') }}"></script>
+    <script src="{{ asset('assets/js/core/bootstrap.min.js') }}"></script>
+
+    <!-- jQuery UI -->
+    <script src="{{ asset('assets/js/plugin/jquery-ui-1.12.1.custom/jquery-ui.min.js') }}"></script>
+    <script src="{{ asset('assets/js/plugin/jquery-ui-touch-punch/jquery.ui.touch-punch.min.js') }}"></script>
+
+    <!-- Datatables -->
+    <script src="{{ asset('assets/js/plugin/datatables/datatables.min.js') }}"></script>
+
+    <!-- Bootstrap Notify -->
+    <script src="{{ asset('assets/js/plugin/bootstrap-notify/bootstrap-notify.min.js') }}"></script>
+
+    <!-- Sweet Alert -->
+    <script src="{{ asset('assets/js/plugin/sweetalert/sweetalert.min.js') }}"></script>
+
+    <!-- Atlantis JS -->
+    <script src="{{ asset('assets/js/atlantis.min.js') }}"></script>
 
     @yield('script')
 
