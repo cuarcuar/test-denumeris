@@ -18,4 +18,4 @@ Route::get('/', function () {
     return view('home');
 });
 
-Route::resource('direccion', DireccionController::class);
+Route::resource('direccion', DireccionController::class)->except('show');

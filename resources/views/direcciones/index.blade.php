@@ -25,9 +25,10 @@
                                 <table class="table">
                                     <thead>
                                         <tr>
-                                            <th>Estado</th>
-                                            <th>Municipio</th>
-                                            <th>Direccion</th>
+                                            <th class="text-center">Estado</th>
+                                            <th class="text-center">Municipio</th>
+                                            <th class="text-center">Direccion</th>
+                                            <th class="text-center">Acciones</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -36,10 +37,23 @@
                                                 <td>{{ $direccion->estado }}</td>
                                                 <td>{{ $direccion->municipio }}</td>
                                                 <td>{{ $direccion->direccion }}</td>
+                                                <td class="text-center">
+                                                    <a href="{{ route('direccion.edit', $direccion) }}">
+                                                        <button type="button" class="btn btn-icon btn-round btn-success">
+                                                            <i class="fas fa-pen"></i>
+                                                        </button>
+                                                    </a>
+
+                                                    {!! BootForm::open()->action(route('direccion.destroy', $direccion))->delete() !!}
+                                                    <button type="submit" class="btn btn-icon btn-round btn-danger">
+                                                        <i class="fas fa-trash"></i>
+                                                    </button>
+                                                    {!! BootForm::close() !!}
+                                                </td>
                                             </tr>
                                         @empty
                                             <tr>
-                                                <td class="text-center" colspan="3">No existen registros actualmente</td>
+                                                <td class="text-center" colspan="4">No existen registros actualmente</td>
                                             </tr>
                                         @endforelse
 
@@ -80,7 +94,7 @@
 @endsection
 
 @section('script')
-<script>
-    /* TODO: Peticion hacia el servicio, actualizar el valor del area de texto resultado */
-</script>
+    <script>
+        /* TODO: Peticion hacia el servicio, actualizar el valor del area de texto resultado */
+    </script>
 @endsection

@@ -26,7 +26,8 @@ class DireccionController extends Controller
     public function create()
     {
         $direccion = new Direccion();
-        return view('direcciones.form', compact('direccion'));
+        $ruta = 'store';
+        return view('direcciones.form', compact('direccion', 'ruta'));
     }
 
     /**
@@ -37,7 +38,8 @@ class DireccionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $direccion = Direccion::create($request->all());
+        return redirect()->route('direccion.index');
     }
 
     /**
@@ -48,7 +50,6 @@ class DireccionController extends Controller
      */
     public function show($id)
     {
-        //
     }
 
     /**
@@ -57,9 +58,10 @@ class DireccionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Direccion $direccion)
     {
-        //
+        $ruta = 'update';
+        return view('direcciones.form', compact('direccion', 'ruta'));
     }
 
     /**
@@ -69,9 +71,11 @@ class DireccionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Direccion $direccion)
     {
-        //
+        $direccion->update($request->all());
+        return redirect()->route('direccion.index');
+
     }
 
     /**
@@ -80,8 +84,10 @@ class DireccionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Direccion $direccion)
     {
-        //
+        $direccion->delete();
+        return redirect()->route('direccion.index');
+
     }
 }
