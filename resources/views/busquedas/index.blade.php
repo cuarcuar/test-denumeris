@@ -46,7 +46,7 @@
             </div>
         </div>
 
-        <div class="page-inner">
+        <div class="page-inner" id="resultados" style="display: none">
             <div class="row row-card-no-pd">
 
                 <div class="col-md-12">
@@ -61,11 +61,11 @@
 
                             <div class="col-md-12">
                                 <div class="mapcontainer">
-                                    <div id="map-example" class="vmap"></div>
+                                    <div id='map' style='height: 400px;'></div>
                                 </div>
                             </div>
 
-                            <div class="col-md-12">
+                            <div class="col-md-12 my-3">
                                 <div class="table-responsive table-hover table-sales">
                                     <table class="table">
                                         <thead>
@@ -121,6 +121,8 @@
                     },
                     success: (respuesta) => {
                         construirTabla(respuesta);
+                        generarMapa(respuesta);
+                        document.getElementById("resultados").style.display = "block";
                     },
                     error: () => {
                         console.log('Error, puede ser la url.')
@@ -152,9 +154,30 @@
                                     <td class="text-center" colspan="7">No existen registros de esta busqueda</td>
                                 </tr>`
             }
-
-
             tabla.innerHTML = elementohtml;
+        }
+
+        function generarMapa(elementos) {
+            mapboxgl.accessToken =
+                'pk.eyJ1IjoiY3VhcmN1YXIiLCJhIjoiY2theXFzbHIyMGt6aDJ5bWg0MGd1ZHF0biJ9.E-iL_pNcCtK9K6yMzIvOhA';
+            const map = new mapboxgl.Map({
+                container: 'map',
+                style: 'mapbox://styles/mapbox/streets-v11',
+                center: [-102.25, 24.17],
+                zoom: 4
+            });
+
+            if (elementos.length > 0) {
+                elementos.forEach(elemento => {
+                    const marker = new mapboxgl.Marker()
+                        .setLngLat([elemento.latitud, elemento.longitud])
+                        .addTo(map);
+                });
+            }
+
+            map.on('idle', function() {
+                map.resize()
+            })
         }
     </script>
 @endsection
