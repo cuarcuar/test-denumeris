@@ -7,7 +7,7 @@
             <div class="card full-height">
                 <div class="card-header">
                     <div class="card-head-row">
-                        <div class="card-title">Busqueda de precios</div>
+                        <div class="card-title">Búsqueda de precios</div>
                         <div class="card-tools">
                             <ul class="nav nav-pills nav-secondary nav-pills-no-bd nav-sm" id="pills-tab" role="tablist">
                                 <li class="nav-item">
@@ -36,7 +36,7 @@
                             </div>
                         </div>
                         <div class="col-md-4">
-                            {!! BootForm::select('Ordenamiento', 'tipoGasolinaOrden', $tipoBusqueda) !!}
+                            {!! BootForm::select('Ordenamiento', 'tipoGasolinaOrden', $tipoBusqueda)->required() !!}
                         </div>
                     </div>
 
@@ -72,7 +72,7 @@
                                             <tr>
                                                 <th>Estado</th>
                                                 <th>Municipio</th>
-                                                <th>Direccion</th>
+                                                <th>Dirección</th>
                                                 <th>Codigo postal</th>
                                                 <th>Gasolina regular</th>
                                                 <th>Gasolina premium</th>

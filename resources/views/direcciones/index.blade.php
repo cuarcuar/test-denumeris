@@ -27,7 +27,7 @@
                                         <tr>
                                             <th class="text-center">Estado</th>
                                             <th class="text-center">Municipio</th>
-                                            <th class="text-center">Direccion</th>
+                                            <th class="text-center">Dirección</th>
                                             <th class="text-center">Acciones</th>
                                         </tr>
                                     </thead>
@@ -70,13 +70,13 @@
                     <div class="card">
                         <div class="card-header">
                             <div class="card-head-row">
-                                <div class="card-title">Resultado servicio</div>
+                                <div class="card-title">Resultado del servicio</div>
                                 <div class="card-tools">
                                     <a onclick="generarResultados();" class="btn btn-info btn-border btn-round btn-sm">
                                         <span class="btn-label">
                                             <i class="fas fa-cogs"></i>
                                         </span>
-                                        Generar peticion
+                                        Generar petición
                                     </a>
                                 </div>
                             </div>

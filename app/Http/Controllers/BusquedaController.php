@@ -14,7 +14,7 @@ class BusquedaController extends Controller
     public function index()
     {
         $tipoBusqueda = [
-            '' => 'Seleccione una opcion',
+            '' => 'Seleccione una opción',
             'regularAscendente' => 'Gasolina regular, ascendente',
             'regularDescendente' => 'Gasolina regular, descendente',
             'premiumAscendente' => 'Gasolina premium, ascendente',
