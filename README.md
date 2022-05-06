@@ -31,6 +31,9 @@ php artisan key:generate
 php artisan storage:link
 composer install --- No hay errores, pero si los hubiera (composer update)
 
+php artisan migrate --seed
+
+se creo un seeder con datos de prueba
 ----------------------------------
 
 Iniciar los servidores de apache y mysql de xampp o lampp
