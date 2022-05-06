@@ -72,7 +72,7 @@
                             <div class="card-head-row">
                                 <div class="card-title">Resultado servicio</div>
                                 <div class="card-tools">
-                                    <a href="#" class="btn btn-info btn-border btn-round btn-sm">
+                                    <a onclick="generarResultados();" class="btn btn-info btn-border btn-round btn-sm">
                                         <span class="btn-label">
                                             <i class="fas fa-cogs"></i>
                                         </span>
@@ -82,7 +82,7 @@
                             </div>
                         </div>
                         <div class="card-body">
-                            <div class="form-group" style="display: none">
+                            <div class="form-group">
                                 <textarea class="form-control" id="resultado" rows="15"></textarea>
                             </div>
                         </div>
@@ -95,6 +95,23 @@
 
 @section('script')
     <script>
-        /* TODO: Peticion hacia el servicio, actualizar el valor del area de texto resultado */
+        function generarResultados() {
+
+            var textArea = document.getElementById('resultado');
+            var url = window.location.href;
+            url = url.replace('direccion', 'api/direcciones');
+
+            $.ajax({
+                url: url,
+                type: "GET",
+                dataType: "json",
+                success: (respuesta) => {
+                    textArea.value = JSON.stringify(respuesta);
+                },
+                error: () => {
+                    console.log('Error, puede ser la url.')
+                },
+            });
+        }
     </script>
 @endsection

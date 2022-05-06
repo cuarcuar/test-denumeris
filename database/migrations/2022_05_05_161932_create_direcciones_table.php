@@ -24,7 +24,6 @@ class CreateDireccionesTable extends Migration
             $table->double('regular', 10,2);
             $table->double('premium', 10,2);
             $table->double('diesel', 10,2)->nullable();
-            $table->timestamps();
         });
     }
 

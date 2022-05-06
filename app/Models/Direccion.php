@@ -21,4 +21,6 @@ class Direccion extends Model
         'premium',
         'diesel'
     ];
+
+    public $timestamps = false;
 }
