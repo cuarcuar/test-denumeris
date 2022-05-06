@@ -107,9 +107,32 @@
                 dataType: "json",
                 success: (respuesta) => {
                     textArea.value = JSON.stringify(respuesta);
+                    $.notify({
+                        icon: 'flaticon-alarm-1',
+                        title: 'Exito',
+                        message: 'Éxito al generar la petición',
+                    }, {
+                        type: 'success',
+                        placement: {
+                            from: "bottom",
+                            align: "right"
+                        },
+                        time: 1000,
+                    });
                 },
                 error: () => {
-                    console.log('Error, puede ser la url.')
+                    $.notify({
+                        icon: 'flaticon-alarm-1',
+                        title: 'Error',
+                        message: 'Error al generar la petición',
+                    }, {
+                        type: 'danger',
+                        placement: {
+                            from: "bottom",
+                            align: "right"
+                        },
+                        time: 1000,
+                    });
                 },
             });
         }

@@ -130,7 +130,18 @@
                 });
 
             } else {
-                alert('Seleccione un metodo de ordenamiento')
+                $.notify({
+                        icon: 'flaticon-alarm-1',
+                        title: 'Error',
+                        message: 'Se necesita el campo de ordenamiento',
+                    }, {
+                        type: 'danger',
+                        placement: {
+                            from: "bottom",
+                            align: "right"
+                        },
+                        time: 1000,
+                    });
             }
         }
 
