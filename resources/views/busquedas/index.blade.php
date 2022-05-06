@@ -123,25 +123,48 @@
                         construirTabla(respuesta);
                         generarMapa(respuesta);
                         document.getElementById("resultados").style.display = "block";
+                        $.notify({
+                            icon: 'flaticon-alarm-1',
+                            title: 'Exito',
+                            message: 'Éxito al generar la petición',
+                        }, {
+                            type: 'success',
+                            placement: {
+                                from: "bottom",
+                                align: "right"
+                            },
+                            time: 1000,
+                        });
                     },
                     error: () => {
-                        console.log('Error, puede ser la url.')
+                        $.notify({
+                            icon: 'flaticon-alarm-1',
+                            title: 'Error',
+                            message: 'Error al generar la petición',
+                        }, {
+                            type: 'danger',
+                            placement: {
+                                from: "bottom",
+                                align: "right"
+                            },
+                            time: 1000,
+                        });
                     },
                 });
 
             } else {
                 $.notify({
-                        icon: 'flaticon-alarm-1',
-                        title: 'Error',
-                        message: 'Se necesita el campo de ordenamiento',
-                    }, {
-                        type: 'danger',
-                        placement: {
-                            from: "bottom",
-                            align: "right"
-                        },
-                        time: 1000,
-                    });
+                    icon: 'flaticon-alarm-1',
+                    title: 'Error',
+                    message: 'Se necesita el campo de ordenamiento',
+                }, {
+                    type: 'danger',
+                    placement: {
+                        from: "bottom",
+                        align: "right"
+                    },
+                    time: 1000,
+                });
             }
         }
 
