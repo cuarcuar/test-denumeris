@@ -53,13 +53,13 @@
                                     <h5>Precios de gasolina</h5>
                                 </div>
                                 <div class="col-md-4">
-                                    {!! BootForm::text('Regular', 'regular', old('regular', $direccion->regular), ['class' => 'number']) !!}
+                                    {!! BootForm::text('Regular', 'regular', old('regular', $direccion->regular)) !!}
                                 </div>
                                 <div class="col-md-4">
-                                    {!! BootForm::text('Premium', 'premium', old('premium', $direccion->premium), ['class' => 'number']) !!}
+                                    {!! BootForm::text('Premium', 'premium', old('premium', $direccion->premium)) !!}
                                 </div>
                                 <div class="col-md-4">
-                                    {!! BootForm::text('Diesel', 'diesel', old('diesel', $direccion->diesel))->addClass('number') !!}
+                                    {!! BootForm::text('Diesel', 'diesel', old('diesel', $direccion->diesel)) !!}
                                 </div>
                             </div>
 

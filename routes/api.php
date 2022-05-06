@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\DireccionesApiController;
+use App\Http\Controllers\DireccionApiController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -19,5 +19,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/direcciones', [DireccionesApiController::class, 'index'] );
-Route::get('/direccionesOrdenadas', [DireccionesApiController::class, 'direccionesOrdenadas'] );
+Route::get('/direcciones', [DireccionApiController::class, 'index'] );
+Route::get('/direccionesOrdenadas', [DireccionApiController::class, 'direccionesOrdenadas'] );

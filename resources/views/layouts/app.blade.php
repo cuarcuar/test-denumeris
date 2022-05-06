@@ -38,7 +38,7 @@
             <!-- Logo Header -->
             <div class="logo-header" data-background-color="dark2">
 
-                <a href="index.html" class="logo">
+                <a href="https://themekita.com/demo-atlantis-lite-bootstrap/#" class="logo">
                     <img src="{{ asset('assets/img/logo.svg') }}" alt="Atlantis lite logo" class="navbar-brand">
                 </a>
                 <button class="navbar-toggler sidenav-toggler ml-auto" type="button" data-toggle="collapse"
@@ -74,7 +74,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#form">
+                            <a href="{{ route('busqueda.index') }}">
                                 <i class="fas fa-pen-square"></i>
                                 <p>Busqueda de precios</p>
                             </a>

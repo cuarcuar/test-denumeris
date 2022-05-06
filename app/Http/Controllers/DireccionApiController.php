@@ -4,9 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Direccion;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
-class DireccionesApiController extends Controller
+class DireccionApiController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -25,24 +24,32 @@ class DireccionesApiController extends Controller
     public function direccionesOrdenadas(Request $request)
     {
 
-        switch ($request['tipoGasolina']) {
+        switch ($request['tipoGasolinaOrden']) {
             case 'regularAscendente':
-                $direcciones = Direccion::orderBy('regular')->get();
+                $direcciones = Direccion::orderBy('regular');
                 break;
 
             case 'regularDescendente':
-                $direcciones = Direccion::orderBy('regular', 'desc')->get();
+                $direcciones = Direccion::orderBy('regular', 'desc');
                 break;
 
             case 'premiumAscendente':
-                $direcciones = Direccion::orderBy('premium')->get();
+                $direcciones = Direccion::orderBy('premium');
                 break;
 
             case 'premiumDescendente':
-                $direcciones = Direccion::orderBy('premium', 'desc')->get();
+                $direcciones = Direccion::orderBy('premium', 'desc');
                 break;
         }
 
-        return response()->json($direcciones);
+        if($request->has('estado')){
+            $direcciones = $direcciones->where('estado', 'LIKE', '%'. $request['estado'] .'%');
+        }
+
+        if($request->has('municipio')){
+            $direcciones = $direcciones->where('municipio', 'LIKE', '%'. $request['municipio'] .'%');
+        }
+
+        return response()->json($direcciones->get());
     }
 }

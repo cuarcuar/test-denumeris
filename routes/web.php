@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BusquedaController;
 use App\Http\Controllers\DireccionController;
 use Illuminate\Support\Facades\Route;
 
@@ -19,3 +20,4 @@ Route::get('/', function () {
 });
 
 Route::resource('direccion', DireccionController::class)->except('show');
+Route::resource('busqueda', BusquedaController::class);
